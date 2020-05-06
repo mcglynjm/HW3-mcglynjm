@@ -40,25 +40,48 @@ More complex
 Overall I prefer the Abstract Factory design.  It offers much more in the terms of allowing us to keep the implementation details as much as we could.  While the lack of the Graph interface could be annoying when it comes to being stuck with the concrete types this may be insignificant as the data part of the problem doesn’t seem like it could expand very much.  This design also allows for easily regenerating a graph as you just call the EdgeFactory with the original nodes and edges from the GraphHandler.  
 
 Class Diagram:
-
+ <img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/AbstractFactory.png' width = '640'/>
 Description:
+
 GraphHandler – This class is responsible for making all graphs and converting between weighted and unweighted.
-2DArrayGraph – This class is the representation of a graph using a 2D array.  This gets created and passed a NodeFactory and a EdgeFactory through the constructor.  
-ListGraph - This class is the representation of a graph using an ArrayList of Nodes and Edges.  This gets created and passed a NodeFactory and a EdgeFactory through the constructor.  
+
+2DArrayGraph – This class is the representation of a graph using a 2D array.  This gets created and passed a NodeFactory and a 
+
+EdgeFactory through the constructor.  
+
+ListGraph - This class is the representation of a graph using an ArrayList of Nodes and Edges.  This gets created and passed a 
+
+NodeFactory and a EdgeFactory through the constructor.  
+
 Node - This interface is implemented by concrete representations of a Node. 
+
 Edge - This interface is implemented by concrete representations of an Edge. 
+
 2DNode – A concrete implementation of the Node interface.  Just holds the name as the 2D graph holds the edges.
+
 ListNode - – A concrete implementation of the Node interface.  Holds a name and a list of outgoing nodes.  
-2DEdge – A concrete implementation of the Edge interface.  Holds only the weight of the edge as the start and end are held in the 2DArray.
+
+2DEdge – A concrete implementation of the Edge interface.  Holds only the weight of the edge as the start and end are held in the 
+2DArray.
+
 ListEdge - A concrete implementation of the Edge interface.  Holds the weight of the edge and the start and end of the edge.
+
 UnweightedListEdge – A concrete implementation of the Edge interface.  Does not hold the weight and just returns 1 for getWeight().
+
 NodeFactory – An interface for creating nodes.
+
 2DNodeFactory – A concrete implementation of the NodeFactory interface.  Just makes an array of 2DNodes.
+
 ListNodeFactory - A concrete implementation of the NodeFactory interface.  Just makes an ArrayList of ListNodes.
+
 EdgeFactory – An interface for creating edges.
+
 2DEdgeFactory – A concrete implementation of the EdgeFactroy interface.  Makes the 2D array for the edges and weights of a 2DArrayGraph.  Fills in empty spaces with max integer.
+
 2DUnweightedEdgeFactory - – A concrete implementation of the EdgeFactroy interface.  Makes the 2D array for the edges of a 2DArrayGraph where all edges are weight 1.  Fills in empty spaces with max integer.
+
 ListEdgeFactory – A concrete implementation of the EdgeFactroy interface.  Makes the ListEdge ArrayList for the edges and weights of a ListGraph.
+
 ListEdgeFactory – A concrete implementation of the EdgeFactroy interface.  Makes the UnweightedListEdge ArrayList for the edges of a ListGraph with all weights as 1.
 
 This took about 4.5 hrs.
