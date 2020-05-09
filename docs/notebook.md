@@ -126,3 +126,37 @@ ListGraph – Same as before.
 2DArrayGraph – Same as before.
 
 This took about 4 hrs.
+
+Entry 3 5/8-9/20:
+Design 1:
+For adding more ShortestPathAlgorithm methods we can apply the strategy pattern.  We can add another interface called ShortestPathAlgorithm that both 2DShortestPathAlgorithm and ListShortestPathAlgorithm extend.  We can do the same thing with a common Runner interface for 2DRunner and ListRunner.  We give the runners a ShortestPathAlgorithm field in the constructor and a setAlgorithm() method to change the algorithm if needed.  This allows us to choose the algorithm at runtime  and add more without modifying the existing code as any new algorithms will implement the ShortestPathAlgorithm interface.  
+Pros:
+Easy to add more methods
+Can do lazy instantiation
+Less reliance on implementation due to interfaces
+Cons:
+Due to splitting the two types of graphs we add another layer of abstraction that may be too much
+
+Design 2:
+We can add more methods using a factory pattern.  We keep the current structure but add in a AlgorithmFactory class that the Experiment uses to create every method when the experiment is started.  This would allow for adding new methods easily while adding a layer of abstraction between the Experiment and the creation of the algorithms.  
+Pros:
+Easy to implement 
+
+Cons:
+More costly with computing power
+More costly with space
+
+Overall I prefer design 1.  Design 1 allows for more modifiability especially when changing a method at runtime.  
+
+Class Diagram:
+
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/Strategy.png' width = '640'/>
+
+
+Sequence Diagram for some algorithm MyAlgorithm:
+
+
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/sequence.png' width = '640'/>
+
+
+This took 3 hrs.
