@@ -102,7 +102,7 @@ Overall I prefer design 1.  Due to the fact that I chose the design without the 
 
 Class Diagram:
 
-<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/AbstractFactory.png' width = '640'/>
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/DomainDesign.png' width = '640'/>
 
 
 Description:
