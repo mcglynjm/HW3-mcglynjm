@@ -86,3 +86,43 @@ ListEdgeFactory – A concrete implementation of the EdgeFactroy interface.  Mak
 
 This took about 4.5 hrs.
 
+Entry 2: 5/6-7/20
+Drivers:
+US1
+US2
+US3
+
+Design from Domain Model:
+From the domain model the important objects for the domain layer will be the ShortestPathAlgorithm the ShortestPath and the Graph.  Using the last design we should include the GraphHandler in the domain layer.  Each algorithm could have an instance of a Result class that holds the shortest path and the time taken.  We can then have an Experiment class that composes the GraphHandler and a ShortestPathAlgorithm and a 2DRunner and a ListRunner to handle running the different implementations of the graphs.  Experiment will create the graph and hold all the algorithms.  When testImplementation() is called it will call the 2DRunner’s runAlgorithm () with the graph and an algorithm.  It will return a Results class with the path and the time taken.  Then the Experiment does the same with the ListRunner.  We can do the same thing for finding the average time but loop through calling the experiment with different graphs but the same algorithm.  Then we can take the time from the Results class and find the average.  Experiment will have the methods testAlgorithm(), findAverage(), and convertToUnweighted.
+
+Design from Transaction Scripts:
+For this design we will have one function per User Scenario.  We will have a function to compare the performance of an algorithm on the 2D and List implementations.  We will have a function to find the average execution time of an implementation.  We will have a function to convert to an unweighted graph.  For this design we can only have one instance of an object.  We will have one static instance of a GraphHandler class, one static instance of a CompareImplementations class, one static instance of a FindAverage class, one static instance of a ConvertToUnweighted class, and one static instance of a Results class.  However we will need to be careful and make sure that the code is safe for multithreading.  
+
+Overall I prefer design 1.  Due to the fact that I chose the design without the common Graph abstraction this singleton pattern does not work as well as I need two methods for doing things to the different kinds of graphs.  While this will produce more classes it will produce classes with less duplicate code.  
+
+Class Diagram:
+
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/AbstractFactory.png' width = '640'/>
+
+
+Description:
+
+GraphHandler – Same as before.
+
+Experiment – Class  in charge of running the three user scenarios for comparing implementations, averaging time, and converting to unweighted.  To accomplish this it uses the GraphCreator and the Runner classes.
+
+Results – This class stores the shortest path and the time taken.  Used to pass results back and keep them separate to allow more things to be added to the Results if needed.
+
+ListRunner – In charge of running the algorithms on the ListGraph implementation.
+
+2DRunner - In charge of running the algorithms on the 2DArrayGraph implementation.
+
+2DShortestPathAlgorithm – Interface for all shortest path algorithms operating on a 2DArrayGraph.  The concrete algorithm classes are left out to save space.
+
+ListShortestPathAlgorithm – Interface for all shortest path algorithms operating on a ListGraph.  The concrete algorithm classes are left out to save space.
+
+ListGraph – Same as before.
+
+2DArrayGraph – Same as before.
+
+This took about 4 hrs.
