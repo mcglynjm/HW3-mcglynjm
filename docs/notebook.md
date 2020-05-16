@@ -160,3 +160,17 @@ Sequence Diagram for some algorithm MyAlgorithm:
 
 
 This took 3 hrs.
+
+Entry 4: 5/13-16/20
+
+Class Diagram:
+
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/Strategy.png' width = '640'/>
+
+Sequence Diagram:
+
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/Strategy.png' width = '640'/>
+
+Problems encountered while implementing:
+
+Why do the unweighted graphs all have 0 weight.  Shouldn’t it be 1.  No clear way to change to an unweighted graph (added a method in the Transaction Script and factory).  Also to use the graphs remakeMe() to call the factory don’t we need an instance of the factory and to save the original specification in the graph.  Storing edges as strings and not as a separate class caused lots of trainwrecks and extra functionality in the ListGraph.  Needed to add methods to each graph interface to access the data structures in the graphs.  The design will not scale well with adding more methods.  The return types of the algorithms are not specified.  The lack of an edge class leads to ugly string parsing in the list graphs.  While it was mentioned it was never shown in the diagrams so I did it without them.  
