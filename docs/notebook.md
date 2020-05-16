@@ -173,4 +173,22 @@ Sequence Diagram:
 
 Problems encountered while implementing:
 
-Why do the unweighted graphs all have 0 weight.  Shouldn’t it be 1.  No clear way to change to an unweighted graph (added a method in the Transaction Script and factory).  Also to use the graphs remakeMe() to call the factory don’t we need an instance of the factory and to save the original specification in the graph.  Storing edges as strings and not as a separate class caused lots of trainwrecks and extra functionality in the ListGraph.  Needed to add methods to each graph interface to access the data structures in the graphs.  The design will not scale well with adding more methods.  The return types of the algorithms are not specified.  The lack of an edge class leads to ugly string parsing in the list graphs.  While it was mentioned it was never shown in the diagrams so I did it without them.  
+Why do the unweighted graphs all have 0 weight.  Shouldn’t it be 1.  No clear way to change to an unweighted graph (added a method in the Transaction Script and factory).  Also to use the graphs remakeMe() to call the factory don’t we need an instance of the factory and to save the original specification in the graph.  Why are the fields defined in the interface?  Storing edges as strings and not as a separate class caused lots of trainwrecks and extra functionality in the ListGraph.  Needed to add methods to each graph interface to access the data structures in the graphs.  The design will not scale well with adding more methods.  The return types of the algorithms are not specified.  The lack of an edge class leads to ugly string parsing in the list graphs.  While it was mentioned it was never shown in the diagrams so I did it without them.  
+
+Questions:
+
+a. The peers design did not function due to factors mentioned above.
+
+b. This design tries to favor composition over inheritance however due to the poorly set up factories and graphs it gets very ugly.  An edge class would make this so much better.
+
+c. The design does not program to interfaces in the graph.  They somehwat program to interfaces with the factories although I'm not sure why they chose to make a factory for files.  Just make one for each type of graph.
+
+d. As mentioned above there are many train wrecks.  Some of these come from having the edges as strings.  
+
+e. The design was fairly cohesive especially with the TransactionScript class.  However this specific class does violate SRP.  
+
+f. The design notebook lacked a lot of specifity on things like converting to unweighted, how the graph can call the factory, and other things such as return types and where variables are stored.  The design was also lacking in the description of the diagrams presented making implementation a painful 20+ hr process (sticking to the design and not using edge classes).
+
+g. In my design some more specificaiton on return types would be useful.  Also I realized I forgot to cite the textbook for the patterns.
+
+This took 21 hours.
