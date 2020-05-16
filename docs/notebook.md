@@ -165,11 +165,11 @@ Entry 4: 5/13-16/20
 
 Class Diagram:
 
-<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/Strategy.png' width = '640'/>
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/ClassDiagram.PNG' width = '640'/>
 
 Sequence Diagram:
 
-<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/Strategy.png' width = '640'/>
+<img src = 'https://github.com/mcglynjm/HW3-mcglynjm/blob/master/images/SequenceDiagram.PNG' width = '640'/>
 
 Problems encountered while implementing:
 
